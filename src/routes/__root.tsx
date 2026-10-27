@@ -78,11 +78,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "Chirag · Aspiring Product Manager" },
+      {
+        name: "description",
+        content:
+          "Portfolio of Chirag, a fresher Product Manager based in Pune, India — case studies, skills and education.",
+      },
+      { property: "og:title", content: "Chirag · Aspiring Product Manager" },
+      {
+        property: "og:description",
+        content:
+          "I turn messy user problems into clear product decisions using research, PRDs, AI prototypes and metrics.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:site", content: "@Lovable" },
