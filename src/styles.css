@@ -2,21 +2,21 @@
 @source "../src";
 @import "tw-animate-css";
 @import "@fontsource-variable/inter";
+@import "@fontsource-variable/fraunces";
 @import "@fontsource/jetbrains-mono/400.css";
 @import "@fontsource/jetbrains-mono/500.css";
 @import "@fontsource/jetbrains-mono/600.css";
-@import "@fontsource/playfair-display/500.css";
-@import "@fontsource/playfair-display/600.css";
-@import "@fontsource/playfair-display/700.css";
 
 @custom-variant dark (&:is(.dark *));
 
 /*
- * Design system — "Midnight Indigo" editorial personal brand.
+ * Design system — "Indigo & Magenta" bold editorial personal brand.
  *
- * Dark-first: near-black page, electric indigo accent (#6d7cff), soft
- * violet-to-blue gradient glow behind the hero. Fonts: Playfair Display
- * (headlines), Inter Variable (body), JetBrains Mono (labels & tags).
+ * Dark-first: near-black page (#07070b), soft surface (#0e0e15), translucent
+ * cards. Accent: indigo #818cf8 → magenta #e879f9 gradient (deeper pair in
+ * light mode). Fonts: Fraunces Variable (headlines & big numbers, weight 400,
+ * letter-spacing -0.03em), Inter Variable (body), JetBrains Mono (small
+ * uppercase labels, 12px, letter-spacing 0.08em).
  */
 
 @theme inline {
@@ -29,6 +29,7 @@
   --radius-4xl: calc(var(--radius) + 16px);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-surface: var(--surface);
   --color-card: var(--card);
   --color-card-foreground: var(--card-foreground);
   --color-popover: var(--popover);
@@ -46,59 +47,66 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
+  --color-accent-indigo: var(--accent-indigo);
+  --color-accent-magenta: var(--accent-magenta);
+  --color-live: var(--live);
   --font-sans: "Inter Variable", ui-sans-serif, system-ui, sans-serif;
-  --font-heading: "Playfair Display", Georgia, serif;
+  --font-heading: "Fraunces Variable", Georgia, serif;
   --font-mono: "JetBrains Mono", ui-monospace, monospace;
 }
 
 :root {
   --radius: 0.75rem;
-  /* Near-black night, electric indigo accent */
-  --background: oklch(0.175 0.018 265);
-  --foreground: oklch(0.955 0.008 260);
-  --card: oklch(0.215 0.024 264);
-  --card-foreground: oklch(0.955 0.008 260);
-  --popover: oklch(0.215 0.024 264);
-  --popover-foreground: oklch(0.955 0.008 260);
-  --primary: #6d7cff;
-  --primary-foreground: oklch(0.14 0.035 264);
-  --secondary: oklch(0.25 0.03 264);
-  --secondary-foreground: oklch(0.94 0.01 260);
-  --muted: oklch(0.25 0.03 264);
-  --muted-foreground: oklch(0.7 0.03 260);
-  --accent: oklch(0.27 0.06 275);
-  --accent-foreground: oklch(0.88 0.07 275);
+  /* Dark (default): #07070b page, #0e0e15 surface */
+  --background: #07070b;
+  --foreground: #f3f3f7;
+  --surface: #0e0e15;
+  --card: rgb(255 255 255 / 0.04);
+  --card-foreground: #f3f3f7;
+  --popover: #0e0e15;
+  --popover-foreground: #f3f3f7;
+  --primary: #818cf8;
+  --primary-foreground: #0b0b12;
+  --secondary: rgb(255 255 255 / 0.06);
+  --secondary-foreground: #f3f3f7;
+  --muted: rgb(255 255 255 / 0.06);
+  --muted-foreground: #9b9bab;
+  --accent: rgb(129 140 248 / 0.12);
+  --accent-foreground: #a5b0ff;
   --destructive: oklch(0.704 0.191 22.216);
   --destructive-foreground: oklch(0.985 0.005 95);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 14%);
-  --ring: #6d7cff;
-  --shadow-soft: 0 10px 30px -12px oklch(0 0 0 / 0.5);
-  --shadow-lift: 0 22px 44px -16px oklch(0.55 0.2 275 / 0.35);
+  --border: rgb(255 255 255 / 0.1);
+  --input: rgb(255 255 255 / 0.12);
+  --ring: #818cf8;
+  --accent-indigo: #818cf8;
+  --accent-magenta: #e879f9;
+  --live: #34d399;
 }
 
 html.light {
-  --background: oklch(0.972 0.006 260);
-  --foreground: oklch(0.21 0.04 264);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.21 0.04 264);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.21 0.04 264);
-  --primary: #4f5ce6;
-  --primary-foreground: oklch(0.985 0.005 95);
-  --secondary: oklch(0.945 0.014 262);
-  --secondary-foreground: oklch(0.25 0.045 264);
-  --muted: oklch(0.945 0.014 262);
-  --muted-foreground: oklch(0.5 0.035 262);
-  --accent: oklch(0.93 0.03 272);
-  --accent-foreground: oklch(0.4 0.13 273);
+  --background: #f6f5f1;
+  --foreground: #14141a;
+  --surface: #ecebe5;
+  --card: rgb(20 20 26 / 0.04);
+  --card-foreground: #14141a;
+  --popover: #ffffff;
+  --popover-foreground: #14141a;
+  --primary: #4f46e5;
+  --primary-foreground: #f6f5f1;
+  --secondary: #ecebe5;
+  --secondary-foreground: #14141a;
+  --muted: rgb(20 20 26 / 0.05);
+  --muted-foreground: #5d5d68;
+  --accent: rgb(79 70 229 / 0.1);
+  --accent-foreground: #4f46e5;
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.985 0.005 95);
-  --border: oklch(0.9 0.014 262);
-  --input: oklch(0.9 0.014 262);
-  --ring: #4f5ce6;
-  --shadow-soft: 0 10px 30px -12px oklch(0.21 0.04 264 / 0.12);
-  --shadow-lift: 0 22px 44px -16px oklch(0.45 0.2 273 / 0.25);
+  --border: rgb(20 20 26 / 0.12);
+  --input: rgb(20 20 26 / 0.14);
+  --ring: #4f46e5;
+  --accent-indigo: #4f46e5;
+  --accent-magenta: #c026d3;
+  --live: #059669;
 }
 
 @layer base {
@@ -123,11 +131,56 @@ html.light {
   }
 }
 
-/* Scroll-reveal animation (driven by IntersectionObserver) */
+/* Respect prefers-reduced-motion: kill animation/transition movement */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  html {
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ---------- Gradient text (accent words, numbers) ---------- */
+@utility text-gradient {
+  background-image: linear-gradient(100deg, var(--accent-indigo), var(--accent-magenta));
+  background-clip: text;
+  color: transparent;
+}
+
+/* ---------- Buttons ---------- */
+@utility btn-gradient {
+  background-image: linear-gradient(100deg, var(--accent-indigo), var(--accent-magenta));
+  color: #ffffff;
+  box-shadow: 0 10px 34px -10px color-mix(in oklab, var(--accent-magenta) 55%, transparent);
+  transition: filter 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+  &:hover {
+    filter: brightness(1.08);
+    transform: translateY(-2px);
+  }
+}
+
+@utility btn-outline {
+  border: 1px solid var(--border);
+  color: var(--foreground);
+  transition: border-color 0.25s ease, color 0.25s ease, background 0.25s ease;
+  &:hover {
+    border-color: var(--accent-indigo);
+    color: var(--accent-indigo);
+    background: color-mix(in oklab, var(--accent-indigo) 8%, transparent);
+  }
+}
+
+/* ---------- Scroll-reveal (fade + translateY 28px, 1s ease) ---------- */
 @utility reveal {
   opacity: 0;
-  transform: translateY(1.5rem);
-  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  transform: translateY(28px);
+  transition: opacity 1s ease, transform 1s ease;
   will-change: opacity, transform;
 }
 
@@ -136,46 +189,154 @@ html.light {
   transform: translateY(0);
 }
 
-/* Card hover lift + indigo glow */
-@utility lift {
-  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.3s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.3s;
+/* ---------- Card hover: lift 4px, accent border, mouse-follow glow ---------- */
+@utility glow-card {
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: radial-gradient(
+      240px circle at var(--mx, 50%) var(--my, 50%),
+      color-mix(in oklab, var(--accent-indigo) 18%, transparent),
+      transparent 70%
+    );
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+  }
   &:hover {
-    transform: translateY(-6px);
-    box-shadow: var(--shadow-lift);
-    border-color: var(--color-ring);
+    transform: translateY(-4px);
+    border-color: var(--accent-indigo);
+    box-shadow: 0 18px 40px -18px color-mix(in oklab, var(--accent-magenta) 40%, transparent);
+  }
+  &:hover::before {
+    opacity: 1;
   }
 }
 
-/* Glowing gradient ring around the portrait */
-@utility portrait-ring {
-  background: linear-gradient(135deg, oklch(0.72 0.15 300), oklch(0.6 0.19 265), oklch(0.55 0.2 250));
-  padding: 0.375rem;
-  border-radius: 1.75rem;
-  box-shadow: 0 0 0 8px oklch(0.55 0.2 275 / 0.14), 0 0 60px oklch(0.55 0.2 275 / 0.25), var(--shadow-soft);
+/* ---------- Hero background blobs ---------- */
+@keyframes blob-drift-a {
+  from {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  to {
+    transform: translate3d(6%, 8%, 0) scale(1.12);
+  }
 }
 
-/* Slowly moving gradient mesh behind the hero */
-@keyframes mesh-drift {
-  0% {
-    transform: translate3d(-3%, -2%, 0) scale(1);
+@keyframes blob-drift-b {
+  from {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  to {
+    transform: translate3d(-7%, -6%, 0) scale(1.08);
+  }
+}
+
+@utility hero-blob {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(90px);
+  pointer-events: none;
+  will-change: transform;
+}
+
+.hero-blob-indigo {
+  width: 34rem;
+  height: 34rem;
+  top: -12rem;
+  left: -10rem;
+  background: color-mix(in oklab, var(--accent-indigo) 38%, transparent);
+  animation: blob-drift-a 22s ease-in-out infinite alternate;
+}
+
+.hero-blob-magenta {
+  width: 30rem;
+  height: 30rem;
+  top: 18%;
+  right: -12rem;
+  background: color-mix(in oklab, var(--accent-magenta) 30%, transparent);
+  animation: blob-drift-b 26s ease-in-out infinite alternate;
+}
+
+/* ---------- Rotating conic-gradient ring behind the portrait ---------- */
+@keyframes ring-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@utility conic-ring {
+  position: absolute;
+  inset: -50%;
+  background: conic-gradient(
+    from 0deg,
+    var(--accent-indigo),
+    var(--accent-magenta) 30%,
+    var(--accent-indigo) 55%,
+    var(--accent-magenta) 80%,
+    var(--accent-indigo)
+  );
+  animation: ring-spin 9s linear infinite;
+  will-change: transform;
+}
+
+/* ---------- Floating mono chips ---------- */
+@keyframes chip-float {
+  0%,
+  100% {
+    transform: translateY(0);
   }
   50% {
-    transform: translate3d(3%, 3%, 0) scale(1.1);
-  }
-  100% {
-    transform: translate3d(-2%, 2%, 0) scale(1.04);
+    transform: translateY(-8px);
   }
 }
 
-@utility hero-mesh {
-  position: absolute;
-  inset: -20%;
-  pointer-events: none;
-  background:
-    radial-gradient(42% 38% at 22% 30%, oklch(0.5 0.2 275 / 0.32), transparent 70%),
-    radial-gradient(36% 34% at 75% 22%, oklch(0.6 0.16 300 / 0.22), transparent 70%),
-    radial-gradient(40% 36% at 62% 72%, oklch(0.5 0.19 250 / 0.24), transparent 70%);
-  filter: blur(48px);
-  animation: mesh-drift 26s ease-in-out infinite alternate;
-  will-change: transform;
+@utility float-chip {
+  animation: chip-float 6s ease-in-out infinite;
+}
+
+/* ---------- Skills marquee ---------- */
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@utility marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 36s linear infinite;
+}
+
+/* ---------- Work rows: shift right + soft gradient wash on hover ---------- */
+@utility work-row {
+  transition: transform 0.35s ease, background 0.35s ease;
+  &:hover {
+    transform: translateX(16px);
+    background: linear-gradient(
+      90deg,
+      color-mix(in oklab, var(--accent-indigo) 9%, transparent),
+      transparent 75%
+    );
+  }
+}
+
+/* ---------- Contact card: radial accent glow at the top ---------- */
+@utility contact-glow {
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+      60% 45% at 50% 0%,
+      color-mix(in oklab, var(--accent-indigo) 22%, transparent),
+      transparent 70%
+    );
+    pointer-events: none;
+  }
 }
