@@ -537,22 +537,6 @@ const WORK = [
     tags: ["PRD", "Marketplace", "Pricing", "Figma"],
     links: [{ label: "Case study on request", href: "#contact" }],
   },
-  {
-    num: "03",
-    title: "HireMate",
-    description:
-      "AI mock-interview platform for Indian job seekers, with freemium pricing, a business plan and a 7-level success matrix.",
-    tags: ["Business plan", "AI product", "Pricing"],
-    links: [{ label: "Plan on request", href: "#contact" }],
-  },
-  {
-    num: "04",
-    title: "Smart Attendance System",
-    description:
-      "Co-authored academic paper on a geofencing-based attendance system, D.N. Patel College of Engineering, Shahada.",
-    tags: ["Research", "Geofencing"],
-    links: [],
-  },
 ];
 
 function Work() {
@@ -627,7 +611,7 @@ function Work() {
 /* ---------- About ---------- */
 
 const STATS = [
-  { value: "4", label: "Projects" },
+  { value: "2", label: "Projects" },
   { value: "8", label: "Eval test cases" },
   { value: "PUN", label: "Pune, India" },
 ];
@@ -732,14 +716,14 @@ function Contact() {
             </p>
             <div className="mt-9 flex flex-wrap justify-center gap-4">
               <a
-                href="mailto:your-email@example.com"
+                href="mailto:chiragpatel005562@gmail.com"
                 className="btn-gradient inline-flex items-center gap-2 rounded-full px-7 py-3 text-sm font-semibold"
               >
                 <Mail className="h-4 w-4" />
                 Email
               </a>
               <a
-                href="https://www.linkedin.com/in/your-profile"
+                href="https://www.linkedin.com/in/chiragpatel-pm"
                 target="_blank"
                 rel="noreferrer"
                 className="btn-outline inline-flex items-center gap-2 rounded-full px-7 py-3 text-sm font-semibold"
