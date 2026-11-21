@@ -82,7 +82,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         name: "description",
         content:
-          "Portfolio of Chirag, a fresher Product Manager based in Pune, India — case studies, skills and education.",
+          "Portfolio of Chirag, a fresher Product Manager: skills, approach, case studies and education.",
       },
       { property: "og:title", content: "Chirag · Aspiring Product Manager" },
       {
@@ -92,7 +92,6 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:site", content: "@Lovable" },
     ],
     links: [
       {
