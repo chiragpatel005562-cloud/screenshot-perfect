@@ -9,7 +9,7 @@ import {
 import {
   ArrowUpRight,
   BrainCircuit,
-  FlaskConical,
+  FileText,
   Linkedin,
   Mail,
   Menu,
@@ -30,13 +30,13 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Portfolio of Chirag, a fresher Product Manager from Pune, India with an Applied AI focus — case studies, AI workflow, skills and education. Open to Associate PM roles.",
+          "Portfolio of Chirag, a fresher Product Manager focused on Applied AI — case studies, prototypes, product thinking and education. Open to Associate PM roles.",
       },
       { property: "og:title", content: "Chirag · Aspiring Product Manager" },
       {
         property: "og:description",
         content:
-          "I turn messy problems into AI-powered product decisions — research, PRDs, no-code AI prototypes, evals and metrics.",
+          "I turn messy problems into AI-powered product decisions through research, PRDs, working prototypes and clear product thinking.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -290,7 +290,7 @@ function Hero() {
               className="-right-3 top-1/2 sm:-right-7"
               delay="1.5s"
             >
-              LLM evals
+              Prototype
             </FloatingChip>
             <FloatingChip className="-bottom-5 left-8" delay="3s">
               Growth
@@ -316,10 +316,10 @@ function Hero() {
             </h1>
 
             <p className="mt-6 max-w-xl leading-relaxed text-muted-foreground">
-              I'm Chirag, a fresher product manager from Pune, completing the
-              Product Management with Applied AI program (IIT Roorkee iHub
-              DivyaSampark x Masai School). I build case studies end to end:
-              research, PRD, working prototype, evals and metrics.
+              I'm Chirag, a fresher product manager. I completed the Product
+              Management with Applied AI program (IIT Roorkee iHub DivyaSampark
+              x Masai School). I build case studies end to end: research, PRD,
+              working prototype and metrics.
             </p>
 
             <div className="mt-8 flex flex-wrap gap-4">
@@ -348,11 +348,15 @@ function Hero() {
 const SKILLS = [
   "Product research",
   "Personas",
+  "User stories",
   "PRD writing",
   "RICE",
-  "LLM evals",
+  "Pricing",
   "Prompting",
+  "Prototyping",
   "Lovable",
+  "Bolt",
+  "Supabase",
   "Airtable",
   "Make.com",
   "Funnels",
@@ -390,42 +394,23 @@ function Marquee() {
 
 /* ---------- Applied AI (bento) ---------- */
 
-function EvalSquares() {
-  const dashed = new Set([3, 6]);
-  return (
-    <div>
-      <div className="flex flex-wrap gap-2">
-        {Array.from({ length: 8 }, (_, i) => (
-          <span
-            key={i}
-            aria-hidden
-            className={cn(
-              "h-8 w-8 rounded-md",
-              dashed.has(i)
-                ? "border border-dashed border-accent-indigo/70 bg-transparent"
-                : "bg-linear-to-br from-accent-indigo to-accent-magenta"
-            )}
-          />
-        ))}
-      </div>
-      <p className="mt-3 font-mono text-[0.65rem] uppercase tracking-[0.08em] text-muted-foreground">
-        8 test cases · dashed = bugs found &amp; fixed
-      </p>
-    </div>
-  );
-}
-
 const BENTO_CARDS = [
+  {
+    icon: FileText,
+    title: "AI that fits the user's workflow",
+    body: "In LocoPick, shopkeepers can't type 2,000 items into an app. They upload a wholesaler bill and AI reads it into items they confirm. I label its accuracy as not yet measured.",
+    span: "md:col-span-4",
+  },
   {
     icon: Wand2,
     title: "No-code AI prototyping",
-    body: "Live itinerary app built in Lovable with an LLM behind it — from prompt to working product without writing a backend.",
+    body: "A live itinerary app built in Lovable with an LLM behind it.",
     span: "md:col-span-2",
   },
   {
     icon: Workflow,
     title: "Human in the loop",
-    body: "Make.com flow: trigger, LLM call, Airtable log, with a review step before anything ships.",
+    body: "Make.com flow: trigger, LLM call, Airtable log, with a review step.",
     span: "md:col-span-2",
   },
   {
@@ -455,31 +440,10 @@ function AppliedAI() {
               talk about it.
             </>
           }
-          lead="Every AI feature I propose comes with a prototype and a way to test it."
+          lead="Every AI feature I propose comes with a prototype and clear limits."
         />
 
         <div className="mt-12 grid gap-4 md:grid-cols-6">
-          {/* Wide card: Evals, not vibes */}
-          <Reveal className="md:col-span-4">
-            <GlowCard className="flex h-full flex-col rounded-2xl border border-border bg-card p-7 sm:p-8">
-              <span className="grid h-11 w-11 place-items-center rounded-xl bg-accent text-accent-foreground">
-                <FlaskConical className="h-5 w-5" />
-              </span>
-              <h3 className="mt-5 font-heading text-2xl font-normal tracking-[-0.03em]">
-                Evals, not vibes
-              </h3>
-              <p className="mt-3 max-w-xl leading-relaxed text-muted-foreground">
-                I tested my trip-planner prototype on a golden dataset of 8
-                inputs with different traveller types, destinations, durations
-                and budgets. It exposed real bugs, like geography clustering
-                and text-versus-tag mismatches, which I then fixed.
-              </p>
-              <div className="mt-6">
-                <EvalSquares />
-              </div>
-            </GlowCard>
-          </Reveal>
-
           {BENTO_CARDS.map((card, i) => (
             <Reveal key={card.title} delay={((i % 3) + 1) * 90} className={card.span}>
               <GlowCard className="flex h-full flex-col rounded-2xl border border-border bg-card p-7">
@@ -516,7 +480,7 @@ const WORK = [
     title: "MakeMyTrip AI Trip Assistant",
     description:
       "Capstone case on an AI itinerary feature. Personas Rhea (Offbeat Explorer) and Arjun (Time-Starved Planner), RICE-prioritised PRD, a working prototype, pricing and GTM, and a growth funnel diagnostic.",
-    tags: ["PRD", "Prototype", "Evals", "GTM"],
+    tags: ["PRD", "Prototype", "GTM", "Growth"],
     links: [
       { label: "Live prototype", href: "https://offbeat-planner.lovable.app" },
       {
@@ -531,11 +495,26 @@ const WORK = [
   },
   {
     num: "02",
-    title: "LocoPick",
+    title: "LocoPick: Reserve & Inspect",
     description:
-      "Hyperlocal discovery and reserve app that shows city buyers the real stock of nearby shops. Token-based Reserve & Inspect flow, billing, delivery slabs, return policy and trend alerts for shopkeepers.",
-    tags: ["PRD", "Marketplace", "Pricing", "Figma"],
-    links: [{ label: "Case study on request", href: "#contact" }],
+      "Hyperlocal app that helps buyers in small cities find the exact item at nearby shops. Buyers reserve free with a QR token and inspect in the shop; the shopkeeper pays a small fee only when the sale is billed in the app. PRD, a working prototype built with Bolt, an independent review of my own PRD (13 challenges, 9 accepted) and a pilot plan.",
+    badge: "Prototype, demo data, no real users yet",
+    tags: ["PRD", "Marketplace", "Pricing", "Prototype"],
+    links: [
+      { label: "Try the demo", href: "https://locopick-hyperlocal-4o10.bolt.host" },
+      {
+        label: "Watch the demo",
+        href: "https://drive.google.com/file/d/1Zt2atdT2-vh5ojtOypgg5VBksagYIxUR/view?usp=drivesdk",
+      },
+      {
+        label: "Case study",
+        href: "https://drive.google.com/file/d/1VKp1lxWZY4Rx0ToslNhCnQzdixWk4Qa8/view?usp=sharing",
+      },
+      {
+        label: "PRD",
+        href: "https://drive.google.com/file/d/1HUSrsAbbxljLnkKPFsxQ0OxFjRIRJrwQ/view?usp=sharing",
+      },
+    ],
   },
 ];
 
@@ -570,6 +549,11 @@ function Work() {
                   <p className="mt-3 max-w-2xl leading-relaxed text-muted-foreground">
                     {item.description}
                   </p>
+                  {item.badge && (
+                    <span className="mt-4 inline-block rounded-full border border-border px-3 py-1 font-mono text-[0.65rem] uppercase tracking-[0.08em] text-muted-foreground">
+                      {item.badge}
+                    </span>
+                  )}
                   <div className="mt-5 flex flex-wrap gap-2">
                     {item.tags.map((tag) => (
                       <span
@@ -587,9 +571,8 @@ function Work() {
                     <a
                       key={link.label}
                       href={link.href}
-                      {...(link.href.startsWith("http")
-                        ? { target: "_blank", rel: "noreferrer" }
-                        : {})}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="inline-flex items-center gap-1 text-sm font-medium underline decoration-accent-indigo/60 underline-offset-4 transition-colors hover:text-accent-magenta"
                     >
                       {link.label}
@@ -611,20 +594,19 @@ function Work() {
 /* ---------- About ---------- */
 
 const STATS = [
-  { value: "2", label: "Projects" },
-  { value: "8", label: "Eval test cases" },
-  { value: "PUN", label: "Pune, India" },
+  { value: "2", label: "Case studies" },
+  { value: "2", label: "Working prototypes" },
+  { value: "APM", label: "Open to roles" },
 ];
 
 const EDUCATION = [
   {
     title: "Product Management with Applied AI",
     sub: "IIT Roorkee iHub DivyaSampark x Masai School",
-    note: "In progress",
+    note: "Completed",
   },
   {
     title: "B.Tech",
-    sub: "CGPA 7.5",
     note: null,
   },
 ];
@@ -642,9 +624,8 @@ function About() {
             <em className="text-gradient">building in public</em>.
           </h2>
           <p className="mt-5 max-w-xl leading-relaxed text-muted-foreground">
-            I'm a B.Tech graduate (CGPA 7.5) aiming for my first PM role by
-            early 2027. I don't have a PM title yet, so I let my case studies
-            do the talking.
+            I'm a B.Tech graduate aiming for my first PM role by early 2027. I
+            don't have a PM title yet, so I let my case studies do the talking.
           </p>
 
           <div className="mt-9 grid grid-cols-3 gap-3 sm:gap-4">
@@ -678,9 +659,11 @@ function About() {
                 <h3 className="font-heading text-xl font-normal tracking-[-0.03em]">
                   {item.title}
                 </h3>
-                <p className="mt-1.5 text-sm text-muted-foreground">
-                  {item.sub}
-                </p>
+                {item.sub && (
+                  <p className="mt-1.5 text-sm text-muted-foreground">
+                    {item.sub}
+                  </p>
+                )}
                 {item.note && (
                   <span className="mt-3 inline-block rounded-full border border-accent-indigo/40 px-2.5 py-1 font-mono text-[0.6rem] uppercase tracking-[0.08em] text-accent-indigo">
                     {item.note}
@@ -745,7 +728,7 @@ function Footer() {
   return (
     <footer className="border-t border-border py-8 text-center">
       <p className="font-mono text-xs uppercase tracking-[0.08em] text-muted-foreground">
-        © 2026 Chirag · Pune, India
+        © 2026 Chirag
       </p>
     </footer>
   );
